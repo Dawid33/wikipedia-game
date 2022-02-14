@@ -4,7 +4,7 @@ services:
   backend:
     image: backend
     ports:
-      - "3000:3000"
+      - "3333:3333"
     links:
       - db:database
     environment:
@@ -15,7 +15,9 @@ services:
   frontend:
     image: frontend
     ports:
-      - "8080:80"
+      - "80:8080"
+    links:
+      - backend:backend
     environment:
       - NGINX_HOST=localhost
       - NGINX_PORT=80
@@ -23,11 +25,11 @@ services:
       context: frontend
       dockerfile: Dockerfile
   db:
-    image: postgres:alpine
-    restart: always
+    image: database
     environment:
-      POSTGRES_DB: postgres
-      POSTGRES_PASSWORD: test
+      POSTGRES_DB: dawid
+      POSTGRES_USER: dawid
+      POSTGRES_PASSWORD: "&H2FEZ5+0X!y\"G8?!beWlV:j5"
     volumes:
       - /var/wikipedia-project-db:/var/lib/postgresql/data
     ports:

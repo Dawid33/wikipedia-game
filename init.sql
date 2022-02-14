@@ -1,0 +1,2 @@
+-- CREATE USER dawid WITH PASSWORD '&H2FEZ5+0X!y"G8?!beWlV:j5';
+-- CREATE DATABASE dawid;

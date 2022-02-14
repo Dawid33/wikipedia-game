@@ -10,7 +10,7 @@ RUN apk add --no-cache nodejs npm curl && mkdir /website
 RUN mkdir -p /website/src && mkdir -p /website/public
 ADD ./src/ /website/src
 ADD ./public/ /website/public
-COPY ["package.json", "package-lock.json", "tsconfig.json", "/website/"]
+COPY ["package.json", "package-lock.json", "tsconfig.json", "nginx.conf", "/website/"]
 
 # Build frontend
 WORKDIR /website
@@ -18,3 +18,4 @@ RUN npm i react-scripts typescript && npm run build
 
 FROM nginx
 COPY --from=builder /website/build /usr/share/nginx/html/
+COPY --from=builder /website/nginx.conf /etc/nginx/nginx.conf
