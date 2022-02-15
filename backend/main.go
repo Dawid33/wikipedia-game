@@ -10,8 +10,7 @@ import (
 )
 
 //go:embed sql/checkIfSchemaExists.sql
-//go:embed sql/guestbookCreateSchema.sql
-//go:embed sql/otherCreateSchema.sql
+//go:embed sql/gameCreateSchema.sql
 var f embed.FS
 var db *sql.DB
 var namePolicy = bluemonday.StrictPolicy()
@@ -20,7 +19,9 @@ var commentPolicy = bluemonday.UGCPolicy()
 func main() {
 	// Connect to database
 	db = connectToDB()
-	var schemas = []string{}
+	var schemas = []string{
+		"game",
+	}
 	CreateMissingSchemas(db, schemas)
 	startHttpServer()
 }

@@ -25,7 +25,7 @@ services:
       context: frontend
       dockerfile: Dockerfile
   db:
-    image: database
+    image: postgres
     environment:
       POSTGRES_DB: dawid
       POSTGRES_USER: dawid
