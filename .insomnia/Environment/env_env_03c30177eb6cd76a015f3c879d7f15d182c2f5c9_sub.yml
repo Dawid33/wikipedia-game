@@ -1,14 +1,20 @@
 _id: env_env_03c30177eb6cd76a015f3c879d7f15d182c2f5c9_sub
 type: Environment
 parentId: env_03c30177eb6cd76a015f3c879d7f15d182c2f5c9
-modified: 1645023189909
+modified: 1645028105591
 created: 1645023189909
 name: OpenAPI env
 data:
   scheme: http
-  base_path: ""
-  host: example.com
-dataPropertyOrder: null
+  base_path: /api
+  host: 127.0.0.1
+  port: 3333
+dataPropertyOrder:
+  "&":
+    - scheme
+    - base_path
+    - host
+    - port
 color: null
 isPrivate: false
 metaSortKey: 1645023189909

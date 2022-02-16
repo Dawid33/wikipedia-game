@@ -1,17 +1,17 @@
-_id: req_wrk_a30526b6412743518ee7b3157965228dd43245ad
+_id: req_wrk_a30526b6412743518ee7b3157965228d95b273cb
 type: Request
 parentId: wrk_a30526b6412743518ee7b3157965228d
-modified: 1645023189907
-created: 1645023189907
-url: "{{ base_url }}/api/active_sessions"
-name: /api/active_sessions
+modified: 1645028360041
+created: 1645028146218
+url: "{{ base_url }}/register_session"
+name: /register_session
 description: ""
 method: GET
 body: {}
 parameters: []
 headers: []
 authentication: {}
-metaSortKey: -1645023189907
+metaSortKey: -1645028146218
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

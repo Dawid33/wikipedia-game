@@ -1,0 +1,21 @@
+_id: req_wrk_a30526b6412743518ee7b3157965228d88478c23
+type: Request
+parentId: wrk_a30526b6412743518ee7b3157965228d
+modified: 1645028146217
+created: 1645028146217
+url: "{{ base_url }}/active_sessions"
+name: /active_sessions
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1645028146217
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

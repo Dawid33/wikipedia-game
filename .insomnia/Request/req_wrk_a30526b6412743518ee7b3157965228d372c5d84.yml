@@ -1,17 +1,17 @@
-_id: req_c0a1cd2cdb434251af3a35aa9ab44a19
+_id: req_wrk_a30526b6412743518ee7b3157965228d372c5d84
 type: Request
 parentId: wrk_a30526b6412743518ee7b3157965228d
-modified: 1645022792594
-created: 1645022772677
-url: http://127.0.0.1:3333/api/active_sessions
-name: active_sessions
+modified: 1645028146215
+created: 1645028146215
+url: "{{ base_url }}/toggle_ready"
+name: Get a single board square
 description: ""
-method: GET
+method: PUT
 body: {}
 parameters: []
 headers: []
 authentication: {}
-metaSortKey: -1645022772677
+metaSortKey: -1645028146216
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true
