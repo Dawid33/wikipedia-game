@@ -1,0 +1,21 @@
+_id: req_wrk_a30526b6412743518ee7b3157965228dfe6aa947
+type: Request
+parentId: wrk_a30526b6412743518ee7b3157965228d
+modified: 1645028465700
+created: 1645028465700
+url: "{{ base_url }}/register_user"
+name: /register_user
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1645028465700
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

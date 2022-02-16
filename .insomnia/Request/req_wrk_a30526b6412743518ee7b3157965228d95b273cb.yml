@@ -1,17 +1,17 @@
-_id: req_c0a1cd2cdb434251af3a35aa9ab44a19
+_id: req_wrk_a30526b6412743518ee7b3157965228d95b273cb
 type: Request
 parentId: wrk_a30526b6412743518ee7b3157965228d
-modified: 1645022792594
-created: 1645022772677
-url: http://127.0.0.1:3333/api/active_sessions
-name: active_sessions
+modified: 1645028465701
+created: 1645028465701
+url: "{{ base_url }}/register_session"
+name: /register_session
 description: ""
 method: GET
 body: {}
 parameters: []
 headers: []
 authentication: {}
-metaSortKey: -1645022772677
+metaSortKey: -1645028465701
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true
