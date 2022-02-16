@@ -1,17 +1,17 @@
 _id: req_wrk_a30526b6412743518ee7b3157965228d372c5d84
 type: Request
 parentId: wrk_a30526b6412743518ee7b3157965228d
-modified: 1645028146215
-created: 1645028146215
+modified: 1645028465697
+created: 1645028465697
 url: "{{ base_url }}/toggle_ready"
-name: Get a single board square
+name: /toggle_ready
 description: ""
 method: PUT
 body: {}
 parameters: []
 headers: []
 authentication: {}
-metaSortKey: -1645028146216
+metaSortKey: -1645028465697
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true
