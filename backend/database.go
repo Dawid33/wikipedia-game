@@ -16,19 +16,10 @@ const (
 	dbname   = "dawid"
 )
 
-type BlogPost struct {
-	Uuid         string
-	Name         string
-	Comment      string
-	PostTime     time.Time
-	NestingLevel int
-	Parent       sql.NullString
-}
-type Post struct {
-	Name     string
-	Comment  string
-	PostTime time.Time
-	Time     time.Time
+type Session struct {
+	SessionId string
+	PostTime  time.Time
+	Ip        string
 }
 
 func connectToDB() *sql.DB {
@@ -96,7 +87,30 @@ func CheckIfSchemasExists(db *sql.DB, schemas []string) ([]bool, error) {
 	return hasSchema, nil
 }
 
-func GetNewestGuests(db *sql.DB) []Post {
+func GetActiveSessions(db *sql.DB) []Session {
+	query := "SELECT session_id, post_time, ip FROM game.active_sessions"
+
+	rows, err := db.Query(query)
+	if err != nil {
+		PrintError(err)
+	}
+	var output []Session
+	for rows.Next() {
+		var sessionId string
+		var postTime time.Time
+		var ip string
+		err = rows.Scan(&sessionId, &postTime, &ip)
+		if err != nil {
+			fmt.Println(err)
+			return nil
+		}
+		output = append(output, Session{SessionId: sessionId, PostTime: postTime, Ip: ip})
+	}
+	return output
+}
+
+/*
+func QueryDBExampleFunc(db *sql.DB) []Post {
 	query := "SELECT name, comment, post_time, visible FROM dawid.guestbook.posts WHERE visible = true;"
 
 	rows, err := db.Query(query)
@@ -118,38 +132,4 @@ func GetNewestGuests(db *sql.DB) []Post {
 	}
 	return output
 }
-
-func GetCommentsForBlogPost(db *sql.DB, blog_post_id int) []BlogPost {
-	query := "SELECT uuid, name, comment, post_time, nesting_level, parent FROM dawid.blog.comments WHERE blog_post_id = $1;"
-
-	rows, err := db.Query(query, blog_post_id)
-	if err != nil {
-		PrintError(err)
-	}
-	var output []BlogPost
-	for rows.Next() {
-		var uuid string
-		var name string
-		var comment string
-		var postTime time.Time
-		var nestingLevel int
-		var parent sql.NullString
-		err = rows.Scan(&uuid, &name, &comment, &postTime, &nestingLevel, &parent)
-		if err != nil {
-			fmt.Println(err)
-			return nil
-		}
-		output = append(output, BlogPost{Uuid: uuid, Name: name, Comment: comment, PostTime: postTime, NestingLevel: nestingLevel, Parent: parent})
-	}
-	return output
-}
-
-/*
-create table guestbook.blog_comments
-(
-    uuid      uuid      default uuid_generate_v4(),
-    name      text not null,
-    comment   text not null,
-    post_time timestamp default current_timestamp
-);
 */

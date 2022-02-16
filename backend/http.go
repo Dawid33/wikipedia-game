@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
 	"log"
@@ -13,26 +14,34 @@ func startHttpServer() {
 	fmt.Println("Starting HTTP Server!")
 
 	mux := http.NewServeMux()
-	mux.HandleFunc("/", fileSendHandler)
+	mux.HandleFunc("/", requestHandler)
 
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", PORT), mux))
 }
 
 // Function that handles all regular requests
-func fileSendHandler(w http.ResponseWriter, req *http.Request) {
+func requestHandler(w http.ResponseWriter, req *http.Request) {
 	log.Println(req.URL.Path)
 	switch req.Method {
 	case "POST":
 		switch req.URL.Path {
-		case "/api/post_comment":
-
-			redirectToUrl(w, req, "/guest_book")
+		case "/api/register_session":
+		case "/api/register_user":
+		case "/api/start_session":
 		default:
 			fmt.Fprintf(w, "Cannot handle request %s", req.URL.Path)
 		}
 	case "GET":
 		switch req.URL.Path {
-		case "/api/new_session":
+		case "/api/active_sessions":
+			sessions := GetActiveSessions(db)
+			output, err := json.Marshal(sessions)
+			if err != nil {
+				fmt.Println(err)
+			}
+
+			w.Header().Set("Content-Type", "application/json")
+			fmt.Fprintf(w, string(output))
 		default:
 			fmt.Fprintf(w, "Cannot handle request %s", req.URL.Path)
 		}

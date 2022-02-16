@@ -5,7 +5,6 @@ import (
 	"embed"
 	"fmt"
 	_ "github.com/lib/pq"
-	"github.com/microcosm-cc/bluemonday"
 	"log"
 )
 
@@ -13,8 +12,6 @@ import (
 //go:embed sql/gameCreateSchema.sql
 var f embed.FS
 var db *sql.DB
-var namePolicy = bluemonday.StrictPolicy()
-var commentPolicy = bluemonday.UGCPolicy()
 
 func main() {
 	// Connect to database
@@ -22,6 +19,7 @@ func main() {
 	var schemas = []string{
 		"game",
 	}
+	//DropAllSchemas(db, schemas) //Be careful with this lmao, only for testing
 	CreateMissingSchemas(db, schemas)
 	startHttpServer()
 }
