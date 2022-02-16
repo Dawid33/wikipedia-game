@@ -1,7 +1,7 @@
 _id: spc_cecdee673fa645d29181229974c66b2f
 type: ApiSpec
 parentId: wrk_a30526b6412743518ee7b3157965228d
-modified: 1645024174976
+modified: 1645024829780
 created: 1645022753929
 fileName: game.yaml
 contents: |-
@@ -16,5 +16,5 @@ contents: |-
         description: Get a list of active sessions ( Debug )
         responses:
           '200':
-            description: Successful response
+            description: this is a string
 contentType: yaml
