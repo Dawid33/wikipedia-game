@@ -1,7 +1,7 @@
 _id: spc_cecdee673fa645d29181229974c66b2f
 type: ApiSpec
 parentId: wrk_a30526b6412743518ee7b3157965228d
-modified: 1645028476731
+modified: 1645036184837
 created: 1645022753929
 fileName: game.yaml
 contents: |-
@@ -15,19 +15,22 @@ contents: |-
     description: Local testing server 
   paths:
     /register_session:
-      get:
+      post:
+        tags: [Session Management]
         description: Register a new game session
         responses:
           "200":
             description: "OK"
     /register_user:
-      get:
+      post:
+        tags: [Session Management]
         description: Register a new user to a game session
         responses:
           "200":
             description: "OK"
     /active_sessions:
       get:
+        tags: [Debug]
         description: Get currently active game sessions
         responses:
           "200":
@@ -52,6 +55,7 @@ contents: |-
           minimum: 1
           maximum: 100
       put:
+        tags: [Session Management]
         description: Change the ready state of the user
         responses:
           "200":
