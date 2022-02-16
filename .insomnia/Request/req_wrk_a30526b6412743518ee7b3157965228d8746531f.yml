@@ -1,0 +1,21 @@
+_id: req_wrk_a30526b6412743518ee7b3157965228d8746531f
+type: Request
+parentId: wrk_a30526b6412743518ee7b3157965228d
+modified: 1645036184830
+created: 1645036184830
+url: "{{ base_url }}/register_session"
+name: /register_session
+description: ""
+method: POST
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1645036184830
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
