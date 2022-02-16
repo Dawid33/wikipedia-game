@@ -1,0 +1,20 @@
+_id: spc_cecdee673fa645d29181229974c66b2f
+type: ApiSpec
+parentId: wrk_a30526b6412743518ee7b3157965228d
+modified: 1645024174976
+created: 1645022753929
+fileName: game.yaml
+contents: |-
+  openapi: 3.0.0
+  info:
+    version: 1.0.0
+    title: Game API
+    description: An api to manage game sessions
+  paths:
+    /api/active_sessions:
+      get:
+        description: Get a list of active sessions ( Debug )
+        responses:
+          '200':
+            description: Successful response
+contentType: yaml
