@@ -10,6 +10,7 @@ import (
 
 //go:embed sql/checkIfSchemaExists.sql
 //go:embed sql/gameCreateSchema.sql
+//go:embed sql/createDummyData.sql
 var f embed.FS
 var db *sql.DB
 
@@ -19,8 +20,12 @@ func main() {
 	var schemas = []string{
 		"game",
 	}
-	//DropAllSchemas(db, schemas) //Be careful with this lmao, only for testing
+	DropAllSchemas(db, schemas) //Be careful with this lmao, only for testing
 	CreateMissingSchemas(db, schemas)
+	query := GetSQLFile("createDummyData")
+	_, err := db.Exec(query)
+	Panic(err)
+
 	startHttpServer()
 }
 

@@ -1,0 +1,1 @@
+INSERT INTO game.active_sessions (session_id, post_time, ip) VALUES (DEFAULT, DEFAULT, '0.0.0.0'::cidr)

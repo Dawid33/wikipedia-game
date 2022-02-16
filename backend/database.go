@@ -17,9 +17,9 @@ const (
 )
 
 type Session struct {
-	SessionId string
-	PostTime  time.Time
-	Ip        string
+	SessionId         string    `json:"session_id"`
+	CreationTimestamp time.Time `json:"creation_timestamp"`
+	Ip                string    `json:"ip"`
 }
 
 func connectToDB() *sql.DB {
@@ -97,14 +97,14 @@ func GetActiveSessions(db *sql.DB) []Session {
 	var output []Session
 	for rows.Next() {
 		var sessionId string
-		var postTime time.Time
+		var time time.Time
 		var ip string
-		err = rows.Scan(&sessionId, &postTime, &ip)
+		err = rows.Scan(&sessionId, &time, &ip)
 		if err != nil {
 			fmt.Println(err)
 			return nil
 		}
-		output = append(output, Session{SessionId: sessionId, PostTime: postTime, Ip: ip})
+		output = append(output, Session{SessionId: sessionId, CreationTimestamp: time, Ip: ip})
 	}
 	return output
 }
