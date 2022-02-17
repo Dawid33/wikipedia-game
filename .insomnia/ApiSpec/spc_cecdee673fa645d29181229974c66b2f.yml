@@ -1,7 +1,7 @@
 _id: spc_cecdee673fa645d29181229974c66b2f
 type: ApiSpec
 parentId: wrk_a30526b6412743518ee7b3157965228d
-modified: 1645036184837
+modified: 1645112156193
 created: 1645022753929
 fileName: game.yaml
 contents: |-
@@ -42,21 +42,23 @@ contents: |-
                   properties:
                     ip:
                       type: string
+                      example: "0.0.0.0/32"
                     session_timestamp:
                       type: string
+                      example: "2022-02-17T15:31:46.713908Z"
                     session_id:
                       type: string
+                      example: "8faf05fe-b603-4e19-a040-a98453867f09"
+  										
     /toggle_ready:
       parameters:
-      - name: id
+      - name: user-id
         in: query
         schema:
-          type: integer
-          minimum: 1
-          maximum: 100
-      put:
+          type: string
+      patch:
         tags: [Session Management]
-        description: Change the ready state of the user
+        description: Change the ready state of the user.
         responses:
           "200":
             description: "OK"

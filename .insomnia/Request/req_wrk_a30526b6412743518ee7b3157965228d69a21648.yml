@@ -1,17 +1,17 @@
-_id: req_wrk_a30526b6412743518ee7b3157965228d88478c23
+_id: req_wrk_a30526b6412743518ee7b3157965228d69a21648
 type: Request
 parentId: wrk_a30526b6412743518ee7b3157965228d
-modified: 1645028746428
-created: 1645028746428
-url: "{{ base_url }}/active_sessions"
-name: /active_sessions
+modified: 1645111932680
+created: 1645111932680
+url: "{{ base_url }}/toggle_ready"
+name: /toggle_ready
 description: ""
-method: GET
+method: PATCH
 body: {}
 parameters: []
 headers: []
 authentication: {}
-metaSortKey: -1645028746428
+metaSortKey: -1645111932680
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true
